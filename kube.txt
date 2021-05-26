@@ -1,0 +1,21 @@
+apiversion: apps/v1
+kind: deployment   
+metadata: 
+   name: nginx-deployment
+   labels:
+     type: /var/www
+spec: 
+  pods: 2
+  selector: 
+    matchlabels: 
+       type: /var/www
+template:
+ metadata: 
+  name: nginx-pod
+  labels:
+    type: /var/www
+spec:
+  containers: 
+  image: nginx 1.16.1
+  port: 8090                                  
+      
